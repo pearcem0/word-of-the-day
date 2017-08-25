@@ -6,8 +6,11 @@
 ~~~~
  chmod +x wotd.sh
  ./wotd.sh
+ ./wotd.sh -d 2017/07/22
  ~~~~
 
-## ideas
+## latest change
+* added compatibility to fetch word or the day for selected date
 
-* Make it compatible to pass in a date, outputting the wotd for that date.  
+## ideas
+* strip out all potential html tags from the definition section.  
