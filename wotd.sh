@@ -20,6 +20,11 @@ then
   | grep "<title>" | sed 's/<title>//g' | cut -d "-" -f 1 | sed 's: | \
   Dictionary.com</title>::g' | tr  -d ' '` ;} \
   || { echo "Bad date format - please use YYYY/MM/DD" ; exit; }
+
+  cleandate=`echo $selecteddate | sed 's|/||g'`
+  if [ "`date '+%Y%m%d'`" -lt "$cleandate" ]; then
+    echo "Date is in the future! Please select a valid date." ; exit;
+  fi
 fi
 
 [ -z "$selecteddate" ] && selecteddate=`date +%Y/%m/%d` && wordoftheday=`curl \
